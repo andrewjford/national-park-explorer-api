@@ -6,6 +6,7 @@ class TempController < ApplicationController
     end
 
     a = JSON.parse(@resp.body)
+    binding.pry
     render json: a
   end
 end
