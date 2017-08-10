@@ -1,7 +1,7 @@
 class CreateParks < ActiveRecord::Migration[5.1]
   def change
     create_table :parks do |t|
-      t.string :state
+      t.string :states
       t.string :lat_long
       t.string :description
       t.string :designation

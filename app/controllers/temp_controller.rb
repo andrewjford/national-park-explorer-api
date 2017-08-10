@@ -6,7 +6,13 @@ class TempController < ApplicationController
     end
 
     a = JSON.parse(@resp.body)
-    binding.pry
+
     render json: a
   end
+
+  def build
+    nps_service = NpsService.new
+    nps_service.importParks
+  end
+
 end
