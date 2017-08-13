@@ -16,9 +16,10 @@ class NpsparksController < ApplicationController
   end
 
   def show
+    parkCode = Park.find(params[:id]).park_code
     nps_service = NpsService.new
 
-    park = nps_service.getPark(params[:code])
+    park = nps_service.getPark(parkCode)
 
     render json: park.to_json()
   end
