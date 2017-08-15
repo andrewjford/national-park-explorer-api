@@ -1,5 +1,5 @@
 class Park < ApplicationRecord
-  validates :full_name, presence: true
-  validates :lat_long, presence: true
+  validates :fullName, presence: true
+  validates :latLong, presence: true
 
 end
