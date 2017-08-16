@@ -11,17 +11,17 @@ class ParksController < ApplicationController
 
   def update
     @park = Park.find(params[:id])
-
     #get current rating and total number of ratings
-    if params.rating <=5 && params.rating > 0
-      @park.add_rating(params.rating)
+    if update_params[:rating].to_i <= 5 && update_params[:rating].to_i > 0
+      @park.add_rating(update_params[:rating].to_i)
+      render json: @park
     end
-    
+
   end
 
   private
 
   def update_params
-    params.permit(:rating)
+    params.permit(:id, :rating)
   end
 end
