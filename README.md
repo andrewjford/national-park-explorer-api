@@ -1,24 +1,11 @@
-# README
+# National Park Explorer API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Front end repo: https://github.com/andrewjford/national-park-explorer-react
 
-Things you may want to cover:
+This is a Rails API for my National Park Explorer app. See above for the react front end repository. It is setup to use Postgresql. To properly populate/prepare the database for the front end, the following steps are necessary.
 
-* Ruby version
+  1. migrate Database
+  2. run the #importPark method located in class NpsService (app/services/nps_service.rb)
+  3. run the #importVisitorCenters method located in class NpsService (app/services/nps_service.rb)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+These steps will pull data from the National Park Service API that the React front end expects from the backend server.
