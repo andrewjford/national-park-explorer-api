@@ -26,7 +26,6 @@ gem 'rack-cors'
 gem 'pg'
 gem 'faraday'
 gem 'dotenv'
-gem 'ruby', '2.3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
