@@ -16,7 +16,6 @@ class ParksController < ApplicationController
       @park.add_rating(update_params[:rating].to_i)
       render json: @park
     end
-
   end
 
   private
