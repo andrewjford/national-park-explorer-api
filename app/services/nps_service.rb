@@ -47,7 +47,7 @@ class NpsService
       req.params['parkCode'] = parkCode
       req.params['fields'] = 'addresses,images,operatingHours'
     end
-
+    
     return JSON.parse(@resp.body)
   end
 
