@@ -6,9 +6,13 @@ class NpsparksController < ApplicationController
 
     park = nps_service.getPark(parkCode)
 
-    #add in our db id
-    park["data"][0]["db_id"] = params[:id]
+    if park[:errors]
+      render json: park.to_json(), status: 404
+    else
+      #add in our db id
+      park["data"][0]["db_id"] = params[:id]
 
-    render json: park.to_json()
+      render json: park.to_json()
+    end
   end
 end
