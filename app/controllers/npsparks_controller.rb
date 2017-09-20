@@ -6,8 +6,9 @@ class NpsparksController < ApplicationController
 
     park = nps_service.getPark(parkCode)
 
-    if park[:errors]
-      render json: park.to_json(), status: 404
+    if park.id
+      # if we are using local db info (NPS API is down)
+      render json: park.to_json()
     else
       #add in our db id
       park["data"][0]["db_id"] = params[:id]

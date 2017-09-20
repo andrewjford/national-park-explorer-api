@@ -47,8 +47,11 @@ class NpsService
       req.params['parkCode'] = parkCode
       req.params['fields'] = 'addresses,images,operatingHours'
     end
+
     if @resp.status.to_s[0] == "4"
-      return {errors: "Unable to connect to NPS Data Server."}
+      # if the NPS Data API returns 4xx code, use our local data instead
+      @park = Park.find_by(parkCode: parkCode)
+      return @park
     else
       return JSON.parse(@resp.body)
     end
