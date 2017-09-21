@@ -5,8 +5,8 @@ class NpsparksController < ApplicationController
     nps_service = NpsService.new
 
     park = nps_service.getPark(parkCode)
-
-    if park.id
+    
+    if park["id"]
       # if we are using local db info (NPS API is down)
       render json: park.to_json()
     else
