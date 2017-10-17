@@ -1,7 +1,7 @@
 class NpsService
   def importParks
     @resp = Faraday.get 'https://developer.nps.gov/api/v1/parks' do |req|
-      req.headers['Authorization'] = ENV['NPS_KEY']
+      req.params['api_key'] = ENV['NPS_KEY']
       req.params['limit'] = 600
     end
     a = JSON.parse(@resp.body)
@@ -25,8 +25,8 @@ class NpsService
   end
 
   def importVisitorCenters
-    @resp = Faraday.get 'https://developer.nps.gov/api/v0/visitorcenters' do |req|
-      req.headers['Authorization'] = ENV['NPS_KEY']
+    @resp = Faraday.get 'https://developer.nps.gov/api/v1/visitorcenters' do |req|
+      req.params['api_key'] = ENV['NPS_KEY']
       req.params['limit'] = 650
     end
     a = JSON.parse(@resp.body)
@@ -42,8 +42,8 @@ class NpsService
   end
 
   def getPark(parkCode)
-    @resp = Faraday.get 'https://developer.nps.gov/api/v0/parks' do |req|
-      req.headers['Authorization'] = ENV['NPS_KEY']
+    @resp = Faraday.get 'https://developer.nps.gov/api/v1/parks' do |req|
+      req.params['api_key'] = ENV['NPS_KEY']
       req.params['parkCode'] = parkCode
       req.params['fields'] = 'addresses,images,operatingHours'
     end
