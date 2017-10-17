@@ -1,6 +1,6 @@
 class NpsService
   def importParks
-    @resp = Faraday.get 'https://developer.nps.gov/api/v0/parks' do |req|
+    @resp = Faraday.get 'https://developer.nps.gov/api/v1/parks' do |req|
       req.headers['Authorization'] = ENV['NPS_KEY']
       req.params['limit'] = 600
     end
